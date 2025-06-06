@@ -1,14 +1,8 @@
-# 🚀 SHNK - Futuristic Developer Terminal
+# 🚀 SHNK - A simple CLI tool for automating daily tasks of a developer
 
 A safe, futuristic, and developer-focused terminal CLI built in Python that combines aesthetics with practical development utilities.
 
 ## ✨ Features
-
-### 🎨 Beautiful Interface
-- ASCII art welcome screen with animations
-- Rich, colorful terminal output
-- Cyberpunk-inspired UI elements
-- Interactive menus and progress indicators
 
 ### 🛠️ Developer Tools
 - **Project Scaffolding**
@@ -16,12 +10,6 @@ A safe, futuristic, and developer-focused terminal CLI built in Python that comb
   - Next.js + Tailwind CSS setup (coming soon)
   - Automated configuration and dependencies
   - Development server launch
-
-### 🔒 Safety Features
-- Sandboxed environment
-- No destructive commands
-- Protected system access
-- Error handling and validation
 
 ## 🚀 Getting Started
 
