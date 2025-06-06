@@ -1,153 +1,125 @@
-🔮 PROJECT PROMPT: Build a Futuristic Developer Terminal CLI with Python
-
-🏗️ Project Title:
-FuturTerminal – A safe, futuristic, and developer-focused terminal built in Python.
-
-
-🎯 Objective:
-Build a cross-platform custom terminal CLI tool that combines the aesthetics of a retro-futuristic terminal with developer-friendly utilities. It simplifies modern frontend project setups (React + Tailwind, Next.js + Tailwind), and provides safe, basic terminal commands (like mkdir, cd, touch) without the risk of system damage (no rm, mv, etc.).
-
-This is not just a utility tool, it’s an experience — personalized, interactive, and intuitive.
-
-
-✨ Core Features:
-1. 🧬 ASCII Art Welcome Screen
-
-
-Beautiful terminal name/logo printed in ASCII
-
-
-Possibly animated with color transitions (optional)
-
-
-2. 🎛️ Menu with Dev Shortcuts
-
-
-Option to:
-
-
-Scaffold a React + Tailwind project
-
-
-Scaffold a Next.js + Tailwind project
-
-
-More features later (Vue, Express, etc.)
-
-
-
-
-It automates:
-
-
-Running npx
-
-
-Installing Tailwind with correct flags
-
-
-Auto-generating tailwind.config.js and injecting code
-
-
-Running the dev server (npm start or npm run dev)
-
-
-
-
-3. 💻 Basic Terminal Commands (Safe Subset)
-
-
-mkdir [folder] – Create folders
-
-
-cd [folder] – Navigate into folders (sandboxed)
-
-
-ls – Show folder contents
-
-
-touch [file] – Create empty files
-
-
-cat [file] – Show file content
-
-
-pwd – Show current directory
-
-
-exit – Exit the terminal
-
-
-All inside a sandboxed root directory so users don’t accidentally wipe system files.
-
-
-4. 🔐 Safety Measures
-
-
-No destructive commands (no rm, mv, chmod)
-
-
-No path access outside the terminal workspace root
-
-
-Errors and edge cases are handled gracefully
-
-
-5. 🎨 UX Polish
-
-
-Colored text and clear logs using colorama or rich
-
-
-Possibly add sound effects or typing animations
-
-
-Prompt suggestions and progress indicators
-
-
-
-🧰 Tech Stack
-LayerToolCore LanguagePython 3CLI Interfaceinput() / argparse / PyInquirerASCII Artpyfiglet, or custom .txtTerminal Color & Logscolorama, rich, or termcolorFile System Operationsos, shutil, subprocessOptional Packagingpyinstaller to generate .exe or .dmgFuture Plugin SystemDynamic command imports using importlib
-
-🗃️ Project Structure
-pythonCopyEditFuturTerminal/
-├── main.py                 # Entry point
-├── banner.py               # ASCII & welcome animation
-├── commands/               # Dev automation commands
+# 🚀 SHNK - Futuristic Developer Terminal
+
+A safe, futuristic, and developer-focused terminal CLI built in Python that combines aesthetics with practical development utilities.
+
+## ✨ Features
+
+### 🎨 Beautiful Interface
+- ASCII art welcome screen with animations
+- Rich, colorful terminal output
+- Cyberpunk-inspired UI elements
+- Interactive menus and progress indicators
+
+### 🛠️ Developer Tools
+- **Project Scaffolding**
+  - React + Tailwind CSS setup
+  - Next.js + Tailwind CSS setup (coming soon)
+  - Automated configuration and dependencies
+  - Development server launch
+
+### 🔒 Safety Features
+- Sandboxed environment
+- No destructive commands
+- Protected system access
+- Error handling and validation
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Python 3.8 or higher
+- pip (Python package manager)
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/shnk.git
+cd shnk
+```
+
+2. Create and activate a virtual environment:
+```bash
+python -m venv .venv
+# On Windows
+.venv\Scripts\activate
+# On Unix or MacOS
+source .venv/bin/activate
+```
+
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+4. Run the application:
+```bash
+python main.py
+```
+
+## 🏗️ Project Structure
+```
+SHNK/
+├── main.py                 # Application entry point
+├── banner.py              # ASCII art and animations
+├── commands/              # Project scaffolding commands
 │   ├── react_tailwind.py
 │   └── next_tailwind.py
-├── terminal/               # Basic terminal commands
+├── terminal/              # Terminal functionality
 │   ├── fs_commands.py
 │   └── sandbox.py
-├── utils/                  # Common helpers
+├── utils/                 # Helper functions
 │   ├── installer.py
 │   └── logger.py
-├── config/
-│   └── settings.json       # Save current path, themes etc.
-├── assets/
-│   └── ascii.txt           # ASCII art file
+├── config/               # Configuration files
+│   └── settings.json
+├── assets/              # Static assets
+│   └── ascii.txt
+├── requirements.txt     # Project dependencies
 └── README.md
+```
 
+## 🛠️ Development
 
-🔄 Development Flow
-PhaseAction✅ Step 1Create main.py entry with ASCII banner + menu✅ Step 2Add safe basic terminal commands with sandbox✅ Step 3Add React + Tailwind installer✅ Step 4Add Next.js + Tailwind installer✅ Step 5Style CLI output with colors, dividers✅ Step 6Add command handler / interpreter loop✅ Step 7Package into .exe (Windows) or .sh (Linux)✅ Step 8Bonus: Add plugin support, command autocomplete, themes
+### Building from Source
+1. Install development dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-✅ Why This Project is Special
+2. Run the development version:
+```bash
+python main.py
+```
 
+### Creating an Executable
+```bash
+pyinstaller SHNK.spec
+```
 
-It's practical: Helps frontend devs scaffold projects in seconds.
+## 📝 License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
+## 🤝 Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-It's aesthetic: ASCII art, colors, custom CLI experience.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
+## 🐛 Known Issues
+- Next.js project scaffolding is currently in development
+- Some terminal commands are still being implemented
 
-It’s safe: Unlike Linux terminals, there's no way to break your system.
+## 🔮 Roadmap
+- [ ] Vue.js + Tailwind project scaffolding
+- [ ] Express.js project setup
+- [ ] Command autocomplete
+- [ ] Custom themes support
+- [ ] Plugin system
 
+## 📫 Contact
+Your Name - [@Ganesh_Sharmazz](https://x.com/Ganesh_Sharmazz)
 
-It's resume-worthy: Shows automation, CLI UX, system-level scripting.
-
-
-
-🧾 Resume Description Example
-
-🚀 FuturTerminal — A futuristic Python-based CLI terminal that scaffolds React/Next.js projects with Tailwind in seconds. Designed with safety in mind, it supports essential terminal operations in a sandboxed environment and features ASCII art, colored CLI output, and dev workflow automation.
+Project Link: [https://github.com/Ganesh-Sharma/SHNK](https://github.com/Ganesh-Sharmaz/SHNK)
