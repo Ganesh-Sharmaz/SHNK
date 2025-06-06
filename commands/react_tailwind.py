@@ -295,13 +295,13 @@ export default function SHNK() {
             </p>
             
             <div className="flex justify-center space-x-8 text-sm mb-4">
-              <a href="#" className="text-gray-500 hover:text-white transition-colors duration-200 font-mono">
+              <a href="https://github.com/Ganesh-Sharmaz/shnk" className="text-gray-500 hover:text-white transition-colors duration-200 font-mono">
                 ⭐ GitHub
               </a>
               <a href="#" className="text-gray-500 hover:text-white transition-colors duration-200 font-mono">
                 📖 Docs
               </a>
-              <a href="#" className="text-gray-500 hover:text-white transition-colors duration-200 font-mono">
+              <a href="https://buymeacoffee.com/ganesh_sharmaz" className="text-gray-500 hover:text-white transition-colors duration-200 font-mono">
                 💬 Support
               </a>
             </div>
