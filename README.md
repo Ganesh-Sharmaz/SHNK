@@ -81,7 +81,7 @@ python main.py
 
 ### Creating an Executable
 ```bash
-pyinstaller SHNK.spec
+pyinstaller --onefile --clean --icon=assets/shnk.ico --name SHNK main.py
 ```
 
 ## 📝 License

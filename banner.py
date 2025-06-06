@@ -1,6 +1,6 @@
 """
 SHNK - Banner and ASCII Art Module
-Handles welcome screen, ASCII art, and animations
+Handles welcome screen, ASCII art, and animations with professional styling
 """
 
 import time
@@ -22,186 +22,136 @@ SHNK_TERMINAL_ASCII = """
 ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝
 """
 
-# Compact version
-SHNK_COMPACT_ASCII = """
- ____  _   _ _   _ _  __
-/ ___|| | | | \\ | | |/ /
-\\___ \\| | | |  \\| | ' / 
- ___) | |_| | |\\  | . \\ 
-|____/ \\___/|_| \\_|_|\\_\\
-"""
-
-# Cyber-style decorative elements
-CYBER_BORDER = "═" * 80
-CYBER_CORNER = "╔" + "═" * 78 + "╗"
-CYBER_BOTTOM = "╚" + "═" * 78 + "╝"
+# Professional decorative elements
+CLEAN_DIVIDER = "─" * 60
+SECTION_DIVIDER = "═" * 50
 
 def display_banner():
-    """Display the main FuturTerminal banner"""
+    """Display the main SHNK banner with professional styling"""
     console.clear()
     
-    # Create colorful ASCII art
+    # Clean, professional ASCII art
     banner_text = Text(SHNK_TERMINAL_ASCII)
-    banner_text.stylize("bold cyan", 0, len(SHNK_TERMINAL_ASCII))
+    banner_text.stylize("bold bright_blue", 0, len(SHNK_TERMINAL_ASCII))
     
-    # Add gradient effect
-    lines = SHNK_TERMINAL_ASCII.split('\n')
-    colors = ["bright_cyan", "cyan", "blue", "bright_blue", "magenta", "bright_magenta"]
+    # Center the banner
+    console.print(Align.center(banner_text))
     
-    styled_banner = Text()
-    for i, line in enumerate(lines):
-        if line.strip():  # Skip empty lines
-            color = colors[i % len(colors)]
-            styled_banner.append(line + "\n", style=f"bold {color}")
-        else:
-            styled_banner.append("\n")
-    
-    # Center the banner (SHNK logo only)
-    console.print(Align.center(styled_banner))
-    
-    # Add subtitle - keep centered
-    subtitle = Text("All in one tool for developers", style="italic bright_white")
+    # Professional subtitle
+    subtitle = Text("Developer Toolkit & Project Generator", style="dim white")
     console.print(Align.center(subtitle))
     console.print()
     
-    # Add version and info - keep centered
+    # Clean info panel
     info_panel = Panel(
-        "[bold green]Version:[/bold green] 1.0.0\n"
-        "[bold yellow]Author:[/bold yellow] Ganesh Sharma\n"
-        "[bold cyan]Features:[/bold cyan] React, Next.js, Express, Tailwind\n"
-        "[bold magenta]Status:[/bold magenta] Ready for Development 🚀",
-        title="[bold white]System Info[/bold white]",
-        border_style="bright_blue",
-        width=60
+        "[bold blue]Version[/bold blue] 1.0.0    [bold blue]Author[/bold blue] Ganesh Sharma\n"
+        "[dim]React • Next.js • Express • Tailwind CSS[/dim]",
+        title="System Information",
+        border_style="blue",
+        width=50,
+        padding=(0, 1)
     )
     console.print(Align.center(info_panel))
     console.print()
 
 def animate_welcome():
-    """Animated welcome sequence"""
+    """Simple, professional loading sequence"""
     messages = [
-        "🔧 Initializing SHNK...",
-        "🛠️  Loading developer tools...",
-        "⚡ Powering up sandbox environment...",
-        "✨ Ready for action!"
+        "Initializing SHNK...",
+        "Loading development tools...",
+        "Environment ready"
     ]
     
     for msg in messages:
-        console.print(f"[bold cyan]{msg}[/bold cyan]")
-        time.sleep(0.5)
+        console.print(f"[dim cyan]• {msg}[/dim cyan]")
+        time.sleep(0.3)
     
-    console.print("\n[bold green]🚀 Welcome to the future of development![/bold green]")
-    time.sleep(1)
+    console.print("\n[bold green]Ready for development[/bold green]")
+    time.sleep(0.5)
 
 def display_loading_bar(task_name: str, duration: float = 2.0):
-    """Display an animated loading bar"""
+    """Display a clean progress indicator"""
     from rich.progress import Progress, BarColumn, TextColumn, TimeRemainingColumn
     
     with Progress(
-        TextColumn("[bold blue]{task.description}"),
-        BarColumn(bar_width=40),
+        TextColumn("[blue]{task.description}"),
+        BarColumn(bar_width=30, style="blue", complete_style="bright_blue"),
         "[progress.percentage]{task.percentage:>3.0f}%",
-        TimeRemainingColumn(),
-        console=console
+        console=console,
+        transient=True
     ) as progress:
         
         task = progress.add_task(task_name, total=100)
         
         while not progress.finished:
-            progress.update(task, advance=1)
-            time.sleep(duration / 100)
+            progress.update(task, advance=2)
+            time.sleep(duration / 50)
 
-def display_cyber_divider(text: str = ""):
-    """Display a cyberpunk-style divider"""
+def display_section_divider(text: str = ""):
+    """Display a clean section divider"""
     if text:
-        divider = f"═══════════════ {text} ═══════════════"
+        divider = f"── {text} " + "─" * (45 - len(text))
     else:
-        divider = "═" * 60
+        divider = CLEAN_DIVIDER
     
-    console.print(f"[bold cyan]{divider}[/bold cyan]")
-
-def typewriter_effect(text: str, delay: float = 0.05):
-    """Display text with typewriter effect"""
-    for char in text:
-        console.print(char, end="")
-        time.sleep(delay)
-    console.print()  # New line at the end
-
-def display_matrix_effect():
-    """Simple matrix-like effect for terminal startup"""
-    import random
-    
-    matrix_chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZアイウエオカキクケコサシスセソタチツテト"
-    
-    for _ in range(5):  # 5 lines of matrix effect
-        line = ""
-        for _ in range(80):
-            line += random.choice(matrix_chars)
-        
-        console.print(f"[bold green]{line}[/bold green]")
-        time.sleep(0.1)
-    
-    # Clear the matrix effect
-    console.clear()
+    console.print(f"[dim blue]{divider}[/dim blue]")
 
 def display_welcome_message():
-    """Display a styled welcome message - left aligned"""
-    welcome_panel = Panel.fit(
-        "[bold cyan]Welcome to SHNK![/bold cyan]\n\n"
-        "🎯 [bold white]Purpose:[/bold white] Streamline your development workflow\n"
-        "🛡️  [bold white]Safety:[/bold white] Sandboxed environment \n"
-        "⚡ [bold white]Speed:[/bold white] Scaffold projects in seconds\n"
-        "🎨 [bold white]Style:[/bold white] Beautiful terminal experience\n\n"
-        "[italic bright_yellow]Let's build the future, one project at a time![/italic bright_yellow]",
-        title="[bold magenta]🚀 SHNK TERMINAL 🚀[/bold magenta]",
-        border_style="bright_cyan",
-        padding=(1, 2)
+    """Display a professional welcome message"""
+    welcome_panel = Panel(
+        "[bold blue]Welcome to SHNK[/bold blue]\n\n"
+        "[white]Streamline your development workflow with professional tooling.\n"
+        "Create React and Next.js projects with modern configurations.[/white]\n\n"
+        "[dim]Select an option below to get started.[/dim]",
+        title="Welcome",
+        border_style="blue",
+        padding=(1, 2),
+        width=60
     )
     
     console.print(welcome_panel)
     console.print()
 
 def display_startup_sequence():
-    """Complete startup sequence with animations"""
-    if console.is_terminal:
-        # Only show matrix effect in actual terminal
-        display_matrix_effect()
-    
+    """Professional startup sequence"""
     display_banner()
     animate_welcome()
     display_welcome_message()
 
-# Color schemes for different themes
+# Professional color schemes
 COLOR_SCHEMES = {
-    "cyberpunk": {
-        "primary": "bright_cyan",
-        "secondary": "bright_magenta",
-        "accent": "bright_yellow",
-        "success": "bright_green",
-        "error": "bright_red",
-        "warning": "bright_yellow"
+    "professional": {
+        "primary": "blue",
+        "secondary": "bright_blue", 
+        "accent": "cyan",
+        "success": "green",
+        "error": "red",
+        "warning": "yellow",
+        "muted": "dim white"
     },
-    "matrix": {
-        "primary": "bright_green",
-        "secondary": "green",
-        "accent": "bright_white",
+    "corporate": {
+        "primary": "bright_blue",
+        "secondary": "blue",
+        "accent": "white",
         "success": "bright_green",
-        "error": "bright_red",
-        "warning": "bright_yellow"
+        "error": "bright_red", 
+        "warning": "bright_yellow",
+        "muted": "dim"
     },
-    "neon": {
-        "primary": "bright_magenta",
-        "secondary": "bright_blue",
-        "accent": "bright_cyan",
-        "success": "bright_green",
-        "error": "bright_red",
-        "warning": "bright_yellow"
+    "minimal": {
+        "primary": "white",
+        "secondary": "bright_white",
+        "accent": "cyan",
+        "success": "green",
+        "error": "red",
+        "warning": "yellow",
+        "muted": "dim"
     }
 }
 
-def get_color_scheme(theme: str = "cyberpunk"):
+def get_color_scheme(theme: str = "professional"):
     """Get color scheme for specified theme"""
-    return COLOR_SCHEMES.get(theme, COLOR_SCHEMES["cyberpunk"])
+    return COLOR_SCHEMES.get(theme, COLOR_SCHEMES["professional"])
 
 if __name__ == "__main__":
     # Test the banner functions
