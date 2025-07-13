@@ -108,6 +108,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 - [ ] Plugin system
 
 ## 📫 Contact
-Your Name - [@Ganesh_Sharmazz](https://x.com/Ganesh_Sharmazz)
+Ganesh Sharma - [@Ganesh_Sharmazz](https://x.com/Ganesh_Sharmazz)
 
 Project Link: [https://github.com/Ganesh-Sharma/SHNK](https://github.com/Ganesh-Sharmaz/SHNK)
